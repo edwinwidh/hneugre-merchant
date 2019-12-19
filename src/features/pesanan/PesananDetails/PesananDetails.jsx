@@ -1,0 +1,153 @@
+import React, { Component, Fragment } from 'react';
+import {
+  Container,
+  Typography,
+  Divider,
+  Grid,
+  AppBar,
+  Toolbar,
+  IconButton,
+  Button
+} from '@material-ui/core';
+import { ArrowBack, CancelPresentation } from '@material-ui/icons';
+import { Link } from 'react-router-dom';
+
+class PesananDetails extends Component {
+  render() {
+    return (
+      <Fragment>
+        <AppBar position='sticky' color='inherit'>
+          <Toolbar>
+            <IconButton
+              edge='start'
+              color='secondary'
+              aria-label='back'
+              onClick={() => {
+                this.props.history.go(-1);
+              }}
+            >
+              <ArrowBack />
+            </IconButton>
+            <Typography variant='h6'>ABCD1234</Typography>
+          </Toolbar>
+        </AppBar>
+
+        <Container maxWidth='xs'>
+          <Typography variant='h5' style={{ paddingTop: '10px' }}>
+            Putri Ayu
+          </Typography>
+          <Typography variant='body1' style={{ paddingBottom: '10px' }}>
+            1 January 2019, 16:35:12 | Bungkus
+          </Typography>
+          <Divider />
+
+          <Grid container xs>
+            <Grid item xs={8}>
+              <Typography
+                variant='body2'
+                style={{ padding: '10px', fontSize: '20px' }}
+              >
+                {`1 Bluespresso`}
+              </Typography>
+            </Grid>
+
+            <Grid container xs={4} justify='flex-end'>
+              <Typography
+                variant='body2'
+                style={{ padding: '10px', fontSize: '20px' }}
+              >
+                {`Rp. 35.000`}
+              </Typography>
+            </Grid>
+          </Grid>
+
+          <Grid container xs>
+            <Grid item xs={8}>
+              <Typography
+                variant='body2'
+                style={{ padding: '10px', fontSize: '20px' }}
+              >
+                {`2 Cookies and Cream`}
+              </Typography>
+            </Grid>
+
+            <Grid container xs={4} justify='flex-end'>
+              <Typography
+                variant='body2'
+                style={{ padding: '10px', fontSize: '20px' }}
+              >
+                {`Rp. 60.000`}
+              </Typography>
+            </Grid>
+          </Grid>
+
+          <Divider />
+          <Grid container xs>
+            <Grid item xs={7}>
+              <Typography
+                variant='subtitle1'
+                style={{
+                  padding: '10px',
+                  fontSize: '20px',
+                  fontWeight: 'bold'
+                }}
+              >
+                Total:
+              </Typography>
+            </Grid>
+
+            <Grid container xs={5} justify='flex-end'>
+              <Typography
+                variant='body1'
+                style={{
+                  padding: '10px',
+                  fontSize: '20px',
+                  fontWeight: 'bold'
+                }}
+              >
+                Rp. 95.000
+              </Typography>
+            </Grid>
+          </Grid>
+
+          <Grid container xs justify='center'>
+            <Grid container xs justify='center'>
+              <Link to='/pesanan/1/cancel'>
+                <CancelPresentation
+                  style={{
+                    bottom: '60px',
+                    top: 'auto',
+                    position: 'fixed',
+                    height: '60px',
+                    width: '60px',
+                    color: 'red'
+                  }}
+                />
+              </Link>
+            </Grid>
+
+            <Grid container xs={8} justify='center'>
+              <Button
+                component={Link}
+                to='/pesanan/1/confirm'
+                variant='contained'
+                color='secondary'
+                size='large'
+                style={{
+                  bottom: '70px',
+                  top: 'auto',
+                  position: 'fixed',
+                  backgroundColor: 'red'
+                }}
+              >
+                Terima Pesanan
+              </Button>
+            </Grid>
+          </Grid>
+        </Container>
+      </Fragment>
+    );
+  }
+}
+
+export default PesananDetails;
